@@ -1,0 +1,37 @@
+{% extends "base.html" %} 
+{% block title %}Registration Page{% endblock %}
+{% block body %}
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="https://getbootstrap.com/docs/3.4/assets/css/ie10-viewport-bug-workaround.css">
+
+    <!-- Custom styles for this template -->
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="https://getbootstrap.com/docs/3.4/assets/js/ie-emulation-modes-warning.js"></script>
+<div class="Container">
+       <h3>Create your account here</h3>
+   <form method="post">
+     
+        
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="submit" value="Sign up"
+                       class="btn btn-primary" />
+                       <p>
+                     <p> 
+         or 
+        <a href="http://localhost:8000/accounts/login/">Already have an account? </a>         {% if form.errors %}
+                    <div class="alert alert-danger" role="alert"><h3>Please check your details and correct them</h3></div>           
+  
+                {% endif %}                  
+</form>
+</div>
+{% endblock %}
+   

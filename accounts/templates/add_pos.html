@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+  {% block body %}
+<head>
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+        .card{
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+                   body {
+            font-family: "Roboto", sans-serif;
+            font-size: 17px;
+            background-color: #fdfdfd;
+        }
+        .shadow {
+            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+        }
+        .btn-danger {
+            color: #fff;
+            background-color: #f00000;
+            border-color: #dc281e;
+        }
+            .head_text {
+        color: white;
+    }
+    
+        .masthead {
+            background: #3398E1;
+            height: auto;
+            padding-bottom: 15px;
+            box-shadow: 0 16px 48px #E3E7EB;
+            padding-top: 10px;
+        }
+</style>
+       <title>{{ post.Your_Post_title }}</title>
+             </head>
+                     <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+               <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> Edit your movie</h3>
+Edit page
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header> <h3> </h3>
+     {% if user.is_authenticated %} 
+     
+<h2>Hello {{ user.username }}</h2>
+<br />
+<h2>Add new post</h2><form method="POST" {% csrf_token %}
+    <table>{% csrf_token %}
+
+        {{ form.as_table }} {% csrf_token %}
+
+    </table> 
+    <center><input type="submit" value="Save" 
+                       class="btn btn-primary" /> </center> 
+</form>
+
+
+
+          {% else %}
+        <title>Login to continue</title>
+           You can't create a post since you are logged out,click  <a href="http://localhost:8000/login/"> here</a> to login to your account
+            	 
+            	 
+          {% endif %}
+
+
+{% endblock %}

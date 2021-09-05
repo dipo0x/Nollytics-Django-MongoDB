@@ -1,0 +1,101 @@
+{% extends "base.html" %} 
+{% block body %}
+<head>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.0/examples/blog/blog.css" rel="stylesheet">
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 16px 48px #E3E7EB;
+    }
+</style>
+      <title>{{ post.Your_Post_title }}</title>
+      
+      </head>
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                  <CENTER>  
+           
+               
+                </CENTER>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+          <div class="card flex-md-row mb-4 box-shadow h-md-250">
+            <div class="card-body d-flex flex-column align-items-start">
+            
+
+              <strong class="d-inline-block mb-2 text-primary">Nollywood(Latest today)</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">{{ post.Your_Post_title }} {{ celebs.Your_Post_title }} </a>
+              </h3>
+              
+              </div>
+              <p class="card-text mb-auto">{{ post.Your_Post}}{{ celebs.Your_Post}}...</p>
+           
+            </div>
+           <div class="container">    <img src="{{ post.Image.url }}{{ celebs.Image.url }}" alt="Card image cap" width="310px" height="250px" >
+          </div>
+        </div>
+        
+
+
+                <p class=" text-muted">Created by {{ post.Your_name }} {{ celebs.Your_name }} on {{ celebs.pub_date}} {{ post.pub_date}}</p>
+                
+                
+               <p> 
+   
+              </p>
+              
+              click <a href="comment">here</a> to add a comment
+    
+  
+
+{% for comment in latest_comment_list %}
+
+
+
+
+<p>
+
+<p>
+Name: {{ comment.your_name }}
+<p>
+
+{{ comment.body }}
+<p>
+Commented on : {{ comment.created_on }}
+
+{% empty %}
+No comment
+{% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

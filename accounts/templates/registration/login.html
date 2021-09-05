@@ -1,0 +1,156 @@
+{% extends "base.html" %} 
+{% block body %}
+<style>
+
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css";
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway";
+
+* {
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+}
+body {
+  background:url("http://hdqwalls.com/download/lake-forest-mountains-illustration-4k-fv-1920x1080.jpg") center center no-repeat;
+  background-size:cover;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+.login-form .form-header {
+  position:absolute;
+  top:0px;
+  width:100%;
+  height:140px;
+}
+
+.login-form .form-header .user-logo {
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:#a5414b;
+  left:50%;
+  transform:translate(-50%,-50px);
+  border-radius:50%;
+  overflow:hidden;
+  box-shadow:inset 0px 0px 3px 15px #b5525c;
+}
+
+.login-form .form-header .user-logo img {
+  margin:10px;
+  width:100px;
+  height:100px;
+}
+.login-form .form-header .title {
+  padding:100px 0px 5px;
+  display:inline-block;
+  font-size:30px;
+  font-weight:600;
+  color:#f1f1f1;
+  margin-top:30px;
+  margin-left:60px;
+  font-family:"Open Sans","Raleway",sans-serif;
+  font-weight:600;
+  text-transform:uppercase;
+  border-bottom:10px solid #f1f1f1;
+}
+
+.form-container {
+  position:relative;
+  top:150px;
+  padding:0px 50px;
+  height:calc(100% - 150px);
+  text-align:center;
+}
+
+.form-container .form-element {
+  position:relative;
+  margin:20px 0px;
+}
+.form-container .form-element label {
+  position:absolute;
+  top:50%;
+  transform:translate(10px, -50%);
+  width:40px;
+  height:40px;
+  background:#a5414b;
+  border-radius:50%;
+  text-align:center;
+  line-height:40px;
+  color:#f1f1f1;
+}
+.form-container .form-element input {
+  width:100%;
+  padding:15px 0px;
+  font-size:18px;;
+  padding-left:60px;
+  padding-right:20px;
+  border-radius:30px;
+  outline:none;
+  border:none;
+  font-family:"Open Sans","Raleway",sans-serif;
+}
+.form-container .form-element button {
+  width:100%;
+  height:50px;
+  border-radius:30px;
+  background:#a5414b;
+  color:#f1f1f1;
+  font-size:18px;
+  font-weight:600;
+  border:none;
+  outline:none;
+  font-family:"Open Sans","Raleway",sans-serif;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.form-container .form-element.forgot-link {
+  position:absolute;
+  bottom:20px;
+  text-align:center;
+  width: calc(100% - 100px);
+}
+.form-container .form-element.forgot-link a {
+  color:#f1f1f1;
+  font-size:18px;
+  font-weight:600;
+  font-family:"Open Sans","Raleway",sans-serif;
+  text-decoration:none;
+}
+</style>
+
+<div class="login-form">
+ <div class="form-header">
+
+   <div class="title">Login</div>
+  </div> 
+  <div class="form-container">
+    <div class="form-element">
+    
+       <form method="post">        
+            {% csrf_token %}
+
+    
+      <label class="fa fa-user" for="login-username"></label>
+      <input type="text" id="login-username" name="username"
+ placeholder="Username">
+    </div>
+    <div class="form-element">
+      <label class="fa fa-key" for="login-password"></label>
+      <input type="password" name="password" id="login-password"
+ placeholder="Password">
+    </div>
+    <div class="form-element">
+    
+
+      <button type="submit">Login</button>
+      </form>
+    </div>
+    <div class="form-element forgot-link">
+      
+    </div>
+  </div>
+</div>
+{% endblock %}
+

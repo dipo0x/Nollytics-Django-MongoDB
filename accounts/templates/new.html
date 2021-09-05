@@ -1,0 +1,13 @@
+
+{% for post in latest_post_list %}
+       
+                   <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.Your_Post_title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.pub_date}} </p>
+                                <p class="card-text">{{ post.Your_Post|slice:":56" }}...</p>
+                    <a href="/{{ post.id }}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}

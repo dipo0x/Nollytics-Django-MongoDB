@@ -1,0 +1,121 @@
+{% load static %}
+{% block content %} 
+<head>
+
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content=""> <meta name="author" content=""> 
+      <link rel="icon" href="https://scontent.flos1-1.fna.fbcdn.net/v/t1.0-9/fr/cp0/e15/q65/82385801_852218265249534_6502620983390633984_n.jpg?_nc_cat=108&efg=eyJpIjoiYiJ9&_nc_eui2=AeEPjJLCyl0RdwroHjSMOQTKmNCqJFxN6mw1RMxVDBXicC9hSIMtfsZO6SLV57gibtrfNi17dqAX0SEQBEgPNxEQgZdWa_JsSscaUbz40w31QA&_nc_ohc=ozSZJymIC-QAX8YUzNW&_nc_ht=scontent.flos1-1.fna&_nc_tp=12&oh=916f61e02224d215d23b9e1bfaaa8c99&oe=5EA787B8"> 
+      <title>Welcome to Nollytics </title>
+      <!-- Bootstrap core CSS --> 
+      <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+      <!-- Custom styles for this template --> <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet"> <link href="https://getbootstrap.com/docs/4.0/examples/blog/blog.css" rel="stylesheet"> <!---For the base --> 
+
+      <link rel='stylesheet' href="{% static 'accounts/bootstrap.css' %}">
+      <link rel='stylesheet' href="{% static 'accounts/blog.css' %}">
+
+      <style>  
+       </style> 
+      </head> 
+      <body>    
+        <div class="container"> 
+          <header class="blog-header py-3"> 
+            <div class="row flex-nowrap justify-content-between align-items-center">
+             <div class="col-4 text-center"> 
+              <center><a class="blog-header-logo text-dark" href="#"> Nollytics</a></center> 
+            </div> <div class="col-4 d-flex justify-content-end align-items-center"> 
+ <form class="form-inline my-2 my-lg-0" action='/search/'>
+  <input class='form-inline my-2 my-lg-0' name='q' type="search" placeholder="Search for movies" aria-label="Search">
+
+</form> 
+ 
+</div> </div> </header> <div> <h2>Hello {{ user.username }}</h2>
+  <a class="btn btn-sm btn-outline-secondary" href="signup">Sign up</a> 
+  <a class="btn btn-sm btn-outline-secondary" href="accounts/login">Login</a> 
+  <a class="btn btn-sm btn-outline-secondary" href="logout">Logout</a> 
+</div> 
+<div class="nav-scroller py-1 mb-2"> 
+  <nav class="nav d-flex justify-content-between"> 
+    <a class="p-2 text-muted" href="top"> Top 10 movies in 2019 </a> 
+    <a class="p-2 text-muted" href="#"></a> 
+    <a class="p-2 text-muted" href="journal">Film Crtitics</a> 
+  </nav> 
+</div>
+<marquee><p> Quick disclamer : We are currently working on Search for you so that you can search for your movies. Thanks</p> </marquee> 
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark"> 
+  <div class="col-md-6 px-0"> 
+    <h1 class="display-4 font-italic">Welcome to Nollytics</h1> 
+    <p class="lead my-3">Nollytics is a website created around Nollywood in order to appreciate and crticize their actions. Not only of the Industry and also, the actions of the actors and actresses</p
+
+<p class="lead mb-0">
+  <a href="#" class="text-white font-weight-bold"> </a>
+</p> 
+</div> 
+</div> 
+
+
+
+
+
+{% for journal in journal %}
+<div class="container">
+         <div class="card mb-8">
+                <div class="card-body">
+                    <h2 class="card-title">{{ journal.Your_Movie_Title }}</h2>
+                    <p class="card-text text-muted h6">{{ journal.timestamp }} </p>
+                                <p class="card-text">{{journal.About_this_movie|slice:":76" }}...</p>  
+                                
+                                      {% if journal.image %}
+                                 <img src="{{  journal.image.url }}" alt="Card image cap" width="400px" height="350px" >
+                                 {% else %}
+                                 {% endif %}
+                               
+                                
+                        <a href="http://127.0.0.1:8000/journal/{{ journal.slug }}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+           
+ {% csrf_token %}
+
+   <p> Click <a href="journal">here</a> to view all </p>
+    <p>Click <a href="add_post/">here</a > to add a new movie </p> 
+  </div> 
+</div> 
+</div> 
+</div> 
+<DIV> <!-- /.blog-post --> 
+  <nav class="blog-pagination">
+   <a class="btn btn-outline-primary" href="#">Older</a>
+    <a class="btn btn-outline-secondary" href="#">Newer</a> </nav>
+     </div>
+     <!-- /.blog-main --> <aside class="col-md-4 blog-sidebar">
+      <div class="p-3 mb-3 bg-light rounded">
+       <h4 class="font-italic">About</h4> 
+       <p class="mb-0">My name is <em>Adesiyan Oladipo.</em> I just finished working on some parts of this website. Let me know what you feel concerning this website by messaging me on Whatsapp +2348147103054. Thanks</p> 
+     </div>
+      <div class="p-3"> <h4 class="font-italic">Elsewhere</h4>
+       <ol class="list-unstyled"> <li>
+        <a href="https://instagram.com/nollytics1">Instagram</a></li> <li><a href="#">Twitter</a></li> <li><a href="#">Facebook</a></li> </ol> </div>
+
+       </aside><!-- /.blog-sidebar --> </div><!-- /.row --> </main><!-- /.container --> 
+       <footer class="blog-footer"> <p>Nollytics by <a href="https://instagram.com/oladipo_codes">Adesiyan Oladipo</a> 
+       </p>
+        <p>
+         <a href="#">Back to top</a> 
+       </p> 
+     </footer> 
+     <!-- Bootstrap core JavaScript ================================================== --> <!-- Placed at the end of the document so the pages load faster --> <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> 
+     <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/examples/blog/assets/js/vendor/jquery-slim.min.js"><\/script>')</script> 
+     <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script> 
+     <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script> 
+     <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script> 
+     <script> Holder.addTheme('thumb', { bg: '#55595c', fg: '#eceeef', text: 'Thumbnail' }); </script>
+      </body> 
+      {% endblock %}
+
+
+
+
+
